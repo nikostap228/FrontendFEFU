@@ -1,0 +1,67 @@
+:root {
+    --header-bg: hsl(180, 65%, 80%);
+    --sidebar-bg: hsl(146, 34%, 38%);
+    --main-bg: hsl(54, 76%, 75%);
+    --footer-bg: hsl(182, 25%, 50%);
+    --border: 1px solid #000;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font: 1.5rem/1.6 system-ui;
+}
+
+.page-header {
+    background: var(--header-bg);
+    border-bottom: var(--border);
+    padding: clamp(2rem, 5vw, 3.75rem) 2.5rem;
+}
+
+.content-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 0.625rem;
+    margin: 0.625rem 0;
+}
+
+.primary-heading {
+    font-size: 3.375rem;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border: var(--border);
+    padding: 1.875rem 1.25rem;
+}
+
+.content-section {
+    background: var(--main-bg);
+    border: var(--border);
+    padding: 2.5rem 1.25rem;
+    display: grid;
+    place-items: center;
+    grid-auto-rows: max-content;
+    row-gap: 1.875rem;
+}
+
+.action-button {
+    font-size: 1.125rem;
+    padding: 0.4375rem 0.625rem;
+    cursor: pointer;
+}
+
+.page-footer {
+    background-color: var(--footer-bg);
+    border-top: var(--border);
+    padding: 3.125rem 2.5rem;
+    margin-top: auto;
+}
