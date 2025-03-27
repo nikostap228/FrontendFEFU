@@ -13,8 +13,17 @@
       </div>
       
       <div class="content-section">
+        <div class="banner">
+          <span>Баннер</span>
+        </div>
         <h1 class="primary-heading">{{ greeting }}</h1>
         <img src="/img/babijon.png" alt="бабиджон">
+        <div class="cards-grid">
+          <div class="card" v-for="n in 2" :key="n">
+            <h3>Карточка {{ n }}</h3>
+            <p>Описание карточки {{ n }}</p>
+          </div>
+        </div>
         <button class="action-button" @click="toggleGreeting">
           Поменять приветствие
         </button>
@@ -113,5 +122,38 @@ img {
   max-width: 100%;
   height: auto;
   border: var(--border);
+}
+
+.banner {
+  background: var(--main-bg);
+  padding: 1.5rem;
+  border: var(--border);
+  text-align: center;
+  font-family: var(--accent-font);
+  margin-bottom: 1.875rem;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  margin: 1.875rem 0;
+}
+
+.card {
+  background: white;
+  border: var(--border);
+  padding: 1.5rem;
+  border-radius: 4px;
+  
+  h3 {
+    font-family: var(--accent-font);
+    margin: 0 0 1rem 0;
+  }
+  
+  p {
+    margin: 0;
+  }
 }
 </style>
