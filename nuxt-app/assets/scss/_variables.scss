@@ -1,0 +1,24 @@
+:root {
+    --header-bg: hsl(180, 65%, 80%);
+    --sidebar-bg: hsl(146, 34%, 38%);
+    --main-bg: hsl(54, 76%, 75%);
+    --footer-bg: hsl(182, 25%, 50%);
+    
+    --main-font: 'Open Sans', sans-serif;
+    --accent-font: 'Montserrat', sans-serif;
+    
+    --border: 1px solid #000;
+  
+    --spacing-unit: 1rem;
+  }
+
+$header-bg: hsl(180, 65%, 80%) !default;
+$sidebar-bg: hsl(146, 34%, 38%) !default;
+$main-bg: hsl(54, 76%, 75%) !default;
+$footer-bg: hsl(182, 25%, 50%) !default;
+
+$main-font: 'Open Sans', sans-serif !default;
+$accent-font: 'Montserrat', sans-serif !default;
+
+$border: 1px solid #000 !default;
+$spacing-unit: 1rem !default;

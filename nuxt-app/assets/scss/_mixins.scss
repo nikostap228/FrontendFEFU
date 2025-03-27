@@ -1,0 +1,23 @@
+@use "sass:color";
+@use 'variables' as *;
+
+@mixin card-style {
+  border: $border;
+  padding: $spacing-unit * 1.5;
+  background: white;
+  border-radius: 8px;
+}
+
+@mixin responsive-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit * 2;
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}

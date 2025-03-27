@@ -1,0 +1,9 @@
+:root {
+    --header-bg: hsl(180, 65%, 80%);
+    --sidebar-bg: hsl(146, 34%, 38%);
+    --main-bg: hsl(54, 76%, 75%);
+    --footer-bg: hsl(182, 25%, 50%);
+    --border: 1px solid #000;
+    --main-font: 'Open Sans', sans-serif;
+    --accent-font: 'Montserrat', sans-serif;
+  }

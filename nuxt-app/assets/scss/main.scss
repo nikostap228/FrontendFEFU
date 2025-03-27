@@ -1,0 +1,17 @@
+@use 'variables' as *;
+@forward 'variables';
+@forward 'mixins';
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: $main-font;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
