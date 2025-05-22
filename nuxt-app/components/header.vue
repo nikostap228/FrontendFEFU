@@ -1,5 +1,5 @@
 <template>
-    <header class = "header">
+    <header class="header">
         <div class="header__container _container">
             <div class="header__block-one">
                 <img class="header__logo" src="\img\header_logo.svg" alt="Логотип">
@@ -14,17 +14,26 @@
                     <img class="header__phone-icon" src="\img\telephone.svg" alt="Телефон">
                     <a href="tel:+79009009090" class="header__phone-number">+7 (900) 900-90-90</a>
                 </div>
-                <button class="header__button">
+                <button class="header__button" @click="openModal">
                     <span class="header__button-text">Оставить заявку</span>
                 </button>
                 <Drawer class="header__button-burger"/>
             </div>
         </div>
+        <Modal ref="modal"/>
     </header>
 </template>
 
 <script setup>
-    import Drawer from "./Drawer.vue"
+import { ref } from 'vue';
+import Drawer from "./Drawer.vue";
+import Modal from "./Modal.vue";
+
+const modal = ref(null);
+
+const openModal = () => {
+    modal.value?.open();
+};
 </script>
 
 <style scoped lang="scss">
