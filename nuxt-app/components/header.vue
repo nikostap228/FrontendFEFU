@@ -1,39 +1,34 @@
 <template>
-    <header class="header">
+    <header class = "header">
         <div class="header__container _container">
             <div class="header__block-one">
                 <img class="header__logo" src="\img\header_logo.svg" alt="Логотип">
                 <nav class="header__menu">
                     <a href="#" class="header__menu-item">Реализованные проекты</a>
-                    <a href="#" class="header__menu-item">Новости</a>
-                    <a href="#" class="header__menu-item">Контакты</a>
+                    <NuxtLink to='/news' class="header__menu-item" active-class="header__menu-item-active">Новости</NuxtLink>
+                    <NuxtLink to='/contacts' class="header__menu-item" active-class="header__menu-item-active">Контакты</NuxtLink>
                 </nav>
             </div>
             <div class="header__block-two">
                 <div class="header__phone">
                     <img class="header__phone-icon" src="\img\telephone.svg" alt="Телефон">
-                    <a href="tel:+79009009090" class="header__phone-number">+7 (900) 900-90-90</a>
+                    <a :href="`tel:${phone.value}`" class="header__phone-number">{{ phone.label }}</a>
                 </div>
-                <button class="header__button" @click="openModal">
+                <Dialog v-model:open="dialogOpened" />
+                <button class="header__button" @click='dialogOpened = true'>
                     <span class="header__button-text">Оставить заявку</span>
                 </button>
                 <Drawer class="header__button-burger"/>
             </div>
         </div>
-        <Modal ref="modal"/>
     </header>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import Drawer from "./Drawer.vue";
-import Modal from "./Modal.vue";
-
-const modal = ref(null);
-
-const openModal = () => {
-    modal.value?.open();
-};
+    import Drawer from './Drawer.vue'
+    import {mockContacts} from '~/assets/contacts.js'
+    const { phone, email, address} = mockContacts
+    const dialogOpened = ref(false)
 </script>
 
 <style scoped lang="scss">
@@ -64,6 +59,9 @@ const openModal = () => {
 
     .header__menu-item{
         cursor: pointer;
+        &-active{
+            color: #029F59;
+        }
     }
 
     .header__block-two{
@@ -84,6 +82,7 @@ const openModal = () => {
         border: 0px;
         font-family: inherit;
         cursor: pointer;
+        text-align: center;
     }
 
     .header__phone{

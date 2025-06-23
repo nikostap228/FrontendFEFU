@@ -13,21 +13,21 @@
             <div v-show="isOpen" class="drawer__menu">
                 <nav class="drawer__nav">
                     <a href="#" class="drawer__item" @click="closeMenu">Реализованные проекты</a>
-                    <a href="#" class="drawer__item" @click="closeMenu">Новости</a>
-                    <a href="#" class="drawer__item" @click="closeMenu">Контакты</a>
+                    <NuxtLink to='/news' class="drawer__item" @click="closeMenu">Новости</NuxtLink>
+                    <NuxtLink to='/contacts' class="drawer__item" @click="closeMenu">Контакты</NuxtLink>
                 </nav>
                 <div class="drawer__contacts">
                     <div class="drawer__phone">
                         <img class="drawer__phone-icon" src="\img\drawer_phone.svg" alt="Телефон">
-                        <a href="tel:+79009009090" class="drawer__phone-number">+7 (900) 900-90-90</a>
+                        <a :href="`tel:${phone.value}`" class="drawer__phone-number">{{phone.label}}</a>
                     </div>
                     <div class="drawer__email">
                         <img class="drawer__email-icon" src="\img\drawer_email.svg" alt="Почта">
-                        <a href="mailto:info@gmail.com">info@gmail.com</a>
+                        <a :href="`mailto:${email}`">{{email}}</a>
                     </div>
                     <div class="drawer__address">
                         <img class="drawer__address-icon" src="\img\drawer_address.svg" alt="Адрес">
-                        <address>г. Владивосток <br> ул. Выселковая 49, стр. 3</address>
+                        <address v-html="address"></address>
                     </div>
                 </div>
             </div>
@@ -41,6 +41,8 @@
   </template>
 
 <script setup>
+    import { mockContacts } from '~/assets/contacts';
+    const {phone, email, address} = mockContacts
     import { ref, watch} from 'vue';
 
     const isOpen = ref(false);

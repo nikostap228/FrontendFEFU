@@ -2,28 +2,20 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ['@/assets/scss/main.scss'],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-            @use "sass:color" as color;
-            @use "~/assets/scss/variables" as *;
-            @use "~/assets/scss/mixins" as *;
-          `,
-        }
+  modules: [
+    ["@nuxtjs/google-fonts", {
+      families: {
+        'Open Sans': [400, 700],
+        'Montserrat': true,
       }
-    }
-  },
-  app: {
-    head: {
-      link: [
-        { 
-          rel: 'stylesheet', 
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'
-        }
-      ]
-    }
+    }],
+    "nuxt-swiper",
+    'reka-ui/nuxt',
+    'vue-yandex-maps/nuxt',
+  ],
+  css: ['~/assets/css/dialog.css', '~/assets/css/main.css', , '~/assets/css/pagination.css'],
+  yandexMaps: {
+    apikey: 'cf4b9da0-b9b5-4e86-b783-ab47290b9a86', // ← ВАЖНО!
+    lang: 'ru_RU'
   }
 })
